@@ -5,13 +5,13 @@ terraform {
       version = "3.2.0"
     }
   }
-  #  backend "remote" {
-  #    organization = "RXT"
-  #
-  #    workspaces {
-  #      name = "terraform-demo"
-  #    }
-  #  }
+  backend "remote" {
+    organization = "RXT"
+
+    workspaces {
+      name = "terraform-demo"
+    }
+  }
 }
 
 provider "vcd" {
