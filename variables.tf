@@ -33,7 +33,7 @@ variable "vcd_auth_type" {
 }
 
 variable "web_count" {
-  default = 5
+  default = 3
 }
 
 variable "db_count" {
@@ -45,9 +45,9 @@ variable "ssh_key_pub" {
 }
 
 variable "catalog_name" {
-  type = string
+  default = "Rackspace Test Images"
 }
 
 variable "template_name" {
-  type = string
+  default = "Ubuntu 20.04 Template"
 }
