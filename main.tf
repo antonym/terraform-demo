@@ -1,21 +1,17 @@
 terraform {
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.26.0"
-    }
     vcd = {
-      source = "vmware/vcd"
+      source  = "vmware/vcd"
       version = "3.2.0"
     }
   }
-  backend "remote" {
-    organization = "RXT"
-
-    workspaces {
-      name = "terraform-demo"
-    }
-  }
+  #  backend "remote" {
+  #    organization = "RXT"
+  #
+  #    workspaces {
+  #      name = "terraform-demo"
+  #    }
+  #  }
 }
 
 provider "vcd" {
@@ -38,11 +34,11 @@ resource "vcd_vm" "web_nodes" {
   cpus          = 2
   cpu_cores     = 1
   metadata = {
-    local-hostname    = format("web-%02d", count.index + 1)
-    role              = "web"
-    env               = "staging"
-    version           = "v1"
-    public-keys-data  = var.ssh_key_pub
+    local-hostname   = format("web-%02d", count.index + 1)
+    role             = "web"
+    env              = "staging"
+    version          = "v1"
+    public-keys-data = var.ssh_key_pub
   }
   guest_properties = {
     "public-keys"    = var.ssh_key_pub
@@ -57,8 +53,8 @@ resource "vcd_vm" "web_nodes" {
   }
 
   customization {
-    enabled       = true
-    initscript    = "mkdir -p /root/.ssh; echo \"${var.ssh_key_pub}\" >> /root/.ssh/authorized_keys; chmod -R go-rwx /root/.ssh; rm /etc/resolv.conf; echo \"nameserver 1.1.1.1\" > /etc/resolv.conf; apt update -qq; apt install -y resolvconf docker.io"
+    enabled    = true
+    initscript = "mkdir -p /root/.ssh; echo \"${var.ssh_key_pub}\" >> /root/.ssh/authorized_keys; chmod -R go-rwx /root/.ssh; rm /etc/resolv.conf; echo \"nameserver 1.1.1.1\" > /etc/resolv.conf; apt update -qq; apt install -y resolvconf docker.io"
   }
 
 }

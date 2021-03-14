@@ -33,21 +33,21 @@ variable "vcd_auth_type" {
 }
 
 variable "web_count" {
-    default = 1
+  default = 1
 }
 
 variable "db_count" {
-    default = 1
+  default = 1
 }
 
 variable "ssh_key_pub" {
-    description = "public ssh key"
+  description = "public ssh key"
 }
 
 variable "catalog_name" {
-    type = string
+  type = string
 }
 
 variable "template_name" {
-    type = string
+  type = string
 }
