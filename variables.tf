@@ -33,7 +33,7 @@ variable "vcd_auth_type" {
 }
 
 variable "web_count" {
-  default = 1
+  default = 5
 }
 
 variable "db_count" {
