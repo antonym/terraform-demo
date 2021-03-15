@@ -54,7 +54,15 @@ resource "vcd_vm" "web_nodes" {
 
   customization {
     enabled    = true
-    initscript = "mkdir -p /root/.ssh; echo \"${var.ssh_key_pub}\" >> /root/.ssh/authorized_keys; chmod -R go-rwx /root/.ssh; rm /etc/resolv.conf; echo \"nameserver 1.1.1.1\" > /etc/resolv.conf; apt update -qq; apt install -y resolvconf docker.io"
+    initscript = <<-EOT
+    mkdir -p /root/.ssh
+    echo "${var.ssh_key_pub}" >> /root/.ssh/authorized_keys
+    chmod -R go-rwx /root/.ssh
+    rm /etc/resolv.conf
+    echo "nameserver 1.1.1.1" > /etc/resolv.conf
+    apt update -qq
+    apt install -y resolvconf docker.io
+    EOT
   }
 
 }
