@@ -60,8 +60,11 @@ resource "vcd_vm" "web_nodes" {
     chmod -R go-rwx /root/.ssh
     rm /etc/resolv.conf
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    apt update -qq
-    apt install -y resolvconf docker.io
+    if [ -e /usr/bin/apt ] ; then apt -qq update && apt install -y git ansible; fi
+    if [ -e /usr/bin/yum ] ; then yum -y update && yum install -y git ansible; fi
+    if [ -e /usr/bin/dnf ] ; then dnf -y update ; dnf install -y git ansible; fi
+    git clone https://github.com/antonym/terraform-demo /opt/terraform-demo
+    pushd /opt/terraform-demo/ansible & ansible-playbook -i localhost site.yml && popd
     EOT
   }
 
