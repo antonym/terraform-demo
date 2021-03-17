@@ -12,8 +12,26 @@
     - "{{ ansible_distribution | lower }}.yml"
     - "{{ ansible_os_family | lower }}.yml"
 
-- name: Install packages
+- name: Install distro packages
   package:
     name: "{{ item }}"
     state: present
   with_items: "{{ app_packages }}"
+
+- name: Install pip packages
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ app_pip_packages }}"
+
+- name: Launch docker container app
+  docker_container:
+    name: pvclabs-gamercon-server
+    image: chalupaul/pvclabs-gamercon-server
+    state: started
+
+- name: Mark completed
+  file:
+    path: /root/completed
+    state: touch
+    mode: 0644
