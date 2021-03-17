@@ -34,3 +34,4 @@
   file:
     path: /root/completed
     state: touch
+    mode: 0644
