@@ -1,3 +1,4 @@
 # .ansible-lint
 skip_list:
   - package-latest
+  - no-changed-when
