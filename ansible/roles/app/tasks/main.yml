@@ -20,9 +20,24 @@
 
 - name: Install pip packages
   pip:
-    name: "{{ item }}"
+    name: "{{ app_pip_packages }}"
     state: present
-  with_items: "{{ app_pip_packages }}"
+
+- name: Update all packages
+  package:
+    name: "*"
+    state: latest
+
+- name: Gathering facts
+  setup:
+
+- name: Just force systemd to reread configs
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Just force systemd to re-execute itself
+  ansible.builtin.systemd:
+    daemon_reexec: yes
 
 - name: Ensure docker started
   service:

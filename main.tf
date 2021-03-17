@@ -44,9 +44,9 @@ resource "vcd_vm" "web_nodes" {
     chmod -R go-rwx /root/.ssh
     rm /etc/resolv.conf
     echo "nameserver 1.1.1.1" > /etc/resolv.conf
-    if [ -e /usr/bin/apt ] ; then apt -qq update && apt install -y git ansible; fi
-    if [ -e /usr/bin/yum ] ; then yum -y update && yum install -y git ansible; fi
-    if [ -e /usr/bin/dnf ] ; then dnf -y update ; dnf install -y git ansible; fi
+    if [ -e /usr/bin/apt ] ; then apt -qq update && apt install -y git ansible python3-pip; fi
+    if [ -e /usr/bin/yum ] ; then yum -y update && yum install -y git ansible python3-pip; fi
+    if [ -e /usr/bin/dnf ] ; then dnf -y update ; dnf install -y git ansible python3-pip; fi
     git clone https://github.com/antonym/terraform-demo /opt/terraform-demo
     cd /opt/terraform-demo/ansible
     export ANSIBLE_LOG_PATH=/var/log/ansible.log
