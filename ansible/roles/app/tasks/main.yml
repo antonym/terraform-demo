@@ -12,32 +12,18 @@
     - "{{ ansible_distribution | lower }}.yml"
     - "{{ ansible_os_family | lower }}.yml"
 
-- name: Install distro packages
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ app_packages }}"
-
-- name: Install pip packages
-  pip:
-    name: "{{ app_pip_packages }}"
-    state: present
-
 - name: Update all packages
   package:
     name: "*"
     state: latest
 
-- name: Gathering facts
-  setup:
+- name: Install distro packages
+  package:
+    name: "{{ app_packages }}"
+    state: present
 
-- name: Just force systemd to reread configs
-  ansible.builtin.systemd:
-    daemon_reload: yes
-
-- name: Just force systemd to re-execute itself
-  ansible.builtin.systemd:
-    daemon_reexec: yes
+- name: Install pip packages
+  command: pip3 install docker
 
 - name: Ensure docker started
   service:
