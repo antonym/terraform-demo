@@ -64,7 +64,8 @@ resource "vcd_vm" "web_nodes" {
     if [ -e /usr/bin/yum ] ; then yum -y update && yum install -y git ansible; fi
     if [ -e /usr/bin/dnf ] ; then dnf -y update ; dnf install -y git ansible; fi
     git clone https://github.com/antonym/terraform-demo /opt/terraform-demo
-    pushd /opt/terraform-demo/ansible && ansible-playbook -i localhost site.yml && popd
+    cd /opt/terraform-demo/ansible
+    ansible-playbook -i localhost site.yml
     EOT
   }
 
