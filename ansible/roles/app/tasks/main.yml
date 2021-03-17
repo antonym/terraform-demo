@@ -25,7 +25,7 @@
   with_items: "{{ app_pip_packages }}"
 
 - name: Launch docker container app
-  docker:
+  docker_container:
     name: pvclabs-gamercon-server
     image: chalupaul/pvclabs-gamercon-server
     state: started
