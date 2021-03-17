@@ -24,6 +24,12 @@
     state: present
   with_items: "{{ app_pip_packages }}"
 
+- name: Ensure docker started
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
 - name: Launch docker container app
   docker_container:
     name: pvclabs-gamercon-server
