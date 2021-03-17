@@ -47,6 +47,7 @@ resource "vcd_vm" "web_nodes" {
     if [ -e /usr/bin/apt ] ; then apt -qq update && apt install -y git ansible python3-pip; fi
     if [ -e /usr/bin/yum ] ; then yum -y update && yum install -y git ansible python3-pip; fi
     if [ -e /usr/bin/dnf ] ; then dnf -y update ; dnf install -y git ansible python3-pip; fi
+    pip install docker
     git clone https://github.com/antonym/terraform-demo /opt/terraform-demo
     cd /opt/terraform-demo/ansible
     export ANSIBLE_LOG_PATH=/var/log/ansible.log

@@ -12,18 +12,15 @@
     - "{{ ansible_distribution | lower }}.yml"
     - "{{ ansible_os_family | lower }}.yml"
 
-- name: Update all packages
-  package:
-    name: "*"
-    state: latest
+#- name: Update all packages
+#  package:
+#    name: "*"
+#    state: latest
 
 - name: Install distro packages
   package:
     name: "{{ app_packages }}"
     state: present
-
-- name: Install pip packages
-  command: pip3 install docker
 
 - name: Ensure docker started
   service:
