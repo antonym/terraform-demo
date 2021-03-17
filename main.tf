@@ -49,6 +49,7 @@ resource "vcd_vm" "web_nodes" {
     if [ -e /usr/bin/dnf ] ; then dnf -y update ; dnf install -y git ansible; fi
     git clone https://github.com/antonym/terraform-demo /opt/terraform-demo
     cd /opt/terraform-demo/ansible
+    export ANSIBLE_LOG_PATH=/var/log/ansible.log
     ansible-playbook -i localhost site.yml
     EOT
   }
