@@ -10,7 +10,7 @@ terraform {
     }
   }
   backend "remote" {
-    organization = "RXT"
+    organization = "racklabs"
 
     workspaces {
       name = "terraform-demo"
