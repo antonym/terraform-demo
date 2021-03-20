@@ -1,26 +1,26 @@
 variable "vcd_user" {
   description = "vCloud user"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "vcd_pass" {
   description = "vCloud pass"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "vcd_org" {
   description = "vCloud org"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "vcd_vdc" {
   description = "vCloud VDC"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "vcd_url" {
   description = "vCloud url"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "vcd_max_retry_timeout" {
