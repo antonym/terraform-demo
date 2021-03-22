@@ -31,7 +31,7 @@
 - name: Launch docker container app
   docker_container:
     name: pvclabs-gamercon-server
-    image: chalupaul/pvclabs-gamercon-server
+    image: ghcr.io/racklabs/pvclabs-gamercon-server
     state: started
 
 - name: Mark completed
