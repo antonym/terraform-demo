@@ -45,7 +45,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ./docker-app
-          file: ./Dockerfile
+          file: ./docker-app/Dockerfile
           target: dev
           
       - name: Login to the GitHub Container Registry
@@ -62,7 +62,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: ./docker-app
-          file: ./Dockerfile
+          file: ./docker-app/Dockerfile
           target: prod
           push: true
           tags: ${{ steps.prep.outputs.tags}}
