@@ -48,7 +48,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: ./
+          context: ./docker-app
           file: ./Dockerfile
           target: dev
           
@@ -65,7 +65,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: ./
+          context: ./docker-app
           file: ./Dockerfile
           target: prod
           push: true
