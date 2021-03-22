@@ -41,10 +41,9 @@ jobs:
       - name: Test Deploy
         id: test_deploy
         uses: docker/build-push-action@v2
-        working-directory: ./docker-app
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: ./
+          context: ./docker-app
           file: ./Dockerfile
           target: dev
           
