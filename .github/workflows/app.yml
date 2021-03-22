@@ -28,7 +28,6 @@ jobs:
 
       - name: Set up docker buildx
         id: buildx
-        working-directory: ./docker-app
         uses: docker/setup-buildx-action@v1
 
       - name: Cache layers
