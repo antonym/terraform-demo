@@ -8,10 +8,6 @@ on:
 jobs:
   Build_Push_Containers:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: docker-app
 
     steps:
       - name: Checkout
