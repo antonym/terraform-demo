@@ -51,37 +51,37 @@ variable "vcd_web_count" {
 
 variable "aws_access_key" {
   description = "AWS Access key"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "aws_secret_key" {
   description = "AWS Secret key"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "aws_ami_id" {
   description = "AWS ami id"
-  default = "ami-08962a4068733a2b6"
+  default     = "ami-08962a4068733a2b6"
 }
 
 variable "aws_region" {
   description = "aws region"
-  default = "us-east-2"
+  default     = "us-east-2"
 }
 
 variable "aws_instance_type" {
   description = "aws instance type"
-  default  = "t2.micro"
+  default     = "t2.micro"
 }
 
 variable "aws_web_count" {
   description = "aws web node count"
-  default = 0
+  default     = 0
 }
 
 variable "aws_key_name" {
   description = "aws key name"
-  default = "aws-keys"
+  default     = "aws-keys"
 }
 
 variable "ssh_key_pub" {
@@ -119,6 +119,6 @@ variable "tcp_protocol" {
 }
 
 variable "all_ips" {
-  type    = list
+  type    = list(any)
   default = ["0.0.0.0/0"]
 }
