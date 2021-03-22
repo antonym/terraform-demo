@@ -59,10 +59,9 @@ jobs:
       - name: prod deploy
         id: prod_deploy
         uses: docker/build-push-action@v2
-        working-directory: ./docker-app
         with:
           builder: ${{ steps.buildx.outputs.name }}
-          context: ./
+          context: ./docker-app
           file: ./Dockerfile
           target: prod
           push: true
