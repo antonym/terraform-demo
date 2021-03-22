@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-drecitory: docker-app
+        working-directory: docker-app
 
     steps:
       - name: Checkout
