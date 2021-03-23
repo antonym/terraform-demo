@@ -46,7 +46,7 @@ variable "vcd_template_name" {
 }
 
 variable "vcd_web_count" {
-  default = 1
+  default = 0
 }
 
 variable "aws_access_key" {
@@ -67,6 +67,11 @@ variable "aws_ami_id" {
 variable "aws_region" {
   description = "aws region"
   default     = "us-east-2"
+}
+
+variable "aws_availability_region" {
+  description = "aws availability region"
+  default     = "us-east-2a"
 }
 
 variable "aws_instance_type" {
