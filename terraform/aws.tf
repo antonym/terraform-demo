@@ -26,7 +26,7 @@ resource "aws_instance" "aws_web_nodes" {
   tags = {
     Name = format("web-%02d", count.index + 1)
   }
-  user_data     = file("scripts/firstboot.sh")
+  user_data = file("scripts/firstboot.sh")
 }
 
 resource "aws_security_group" "web_nodes" {
