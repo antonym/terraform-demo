@@ -1,7 +1,7 @@
 ### VM Counts
 variable "vcd_web_count" {
   description = "vcd web node count"
-  default     = 0
+  default     = 2
 }
 
 variable "aws_web_count" {
