@@ -1,3 +1,15 @@
+### VM Counts
+variable "vcd_web_count" {
+  description = "vcd web node count"
+  default     = 0
+}
+
+variable "aws_web_count" {
+  description = "aws web node count"
+  default     = 0
+}
+
+### Variables
 variable "vcd_user" {
   description = "vCloud user"
   sensitive   = true
@@ -45,10 +57,6 @@ variable "vcd_template_name" {
   default = "Ubuntu 20.04 Template"
 }
 
-variable "vcd_web_count" {
-  default = 0
-}
-
 variable "aws_access_key" {
   description = "AWS Access key"
   sensitive   = true
@@ -77,11 +85,6 @@ variable "aws_availability_region" {
 variable "aws_instance_type" {
   description = "aws instance type"
   default     = "t2.micro"
-}
-
-variable "aws_web_count" {
-  description = "aws web node count"
-  default     = 0
 }
 
 variable "aws_key_name" {

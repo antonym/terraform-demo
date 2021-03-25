@@ -51,7 +51,9 @@ resource "vcd_vm" "vcd_web_nodes" {
     git clone https://github.com/racklabs/terraform-demo /opt/terraform-demo
     cd /opt/terraform-demo/ansible
     export ANSIBLE_LOG_PATH=/var/log/ansible.log
+    sleep 60
     ansible-playbook -i localhost site.yml
+    if [ ! -e /root/completed ] ; then ansible-playbook -i localhost site.yml; fi
     EOT
   }
 

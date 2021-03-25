@@ -77,7 +77,7 @@ resource "aws_instance" "aws_web_nodes" {
   ami                    = var.aws_ami_id
   instance_type          = var.aws_instance_type
   key_name               = var.aws_key_name
-  vpc_security_group_ids = [ aws_security_group.web_nodes.id ]
+  vpc_security_group_ids = [aws_security_group.web_nodes.id]
   subnet_id              = aws_subnet.public-1.id
   tags = {
     Name = format("web-%02d", count.index + 1)
