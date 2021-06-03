@@ -1,12 +1,17 @@
 ### VM Counts
 variable "vcd_web_count" {
   description = "vcd web node count"
-  default     = 2
+  default     = 0
 }
 
 variable "aws_web_count" {
   description = "aws web node count"
-  default     = 2
+  default     = 0
+}
+
+variable "google_web_count" {
+  description = "google web node count"
+  default     = 0
 }
 
 ### Variables
@@ -92,6 +97,26 @@ variable "aws_key_name" {
   default     = "aws-keys"
 }
 
+variable "gce_project_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "gce_region" {
+  type      = string
+  sensitive = true
+}
+
+variable "gce_zone" {
+  type      = string
+  sensitive = true
+}
+
+variable "gce_image_name" {
+  type      = string
+  default   = "ubuntu-os-cloud/ubuntu-2004-lts"
+}
+
 variable "ssh_key_pub" {
   description = "public ssh key"
 }
@@ -129,4 +154,9 @@ variable "tcp_protocol" {
 variable "all_ips" {
   type    = list(any)
   default = ["0.0.0.0/0"]
+}
+
+variable "gce_ssh_user" {
+  type    = string
+  default = "root"
 }

@@ -72,11 +72,16 @@ resource "aws_security_group" "web_nodes" {
   }
 }
 
+resource "aws_key_pair" "deployer" {
+  key_name   = "deployer-key"
+  public_key = var.ssh_key_pub
+}
+
 resource "aws_instance" "aws_web_nodes" {
   count                  = var.aws_web_count
   ami                    = var.aws_ami_id
   instance_type          = var.aws_instance_type
-  key_name               = var.aws_key_name
+  key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.web_nodes.id]
   subnet_id              = aws_subnet.public-1.id
   tags = {
