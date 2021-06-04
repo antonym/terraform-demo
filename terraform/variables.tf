@@ -113,8 +113,8 @@ variable "gce_zone" {
 }
 
 variable "gce_image_name" {
-  type      = string
-  default   = "ubuntu-os-cloud/ubuntu-2004-lts"
+  type    = string
+  default = "ubuntu-os-cloud/ubuntu-2004-lts"
 }
 
 variable "ssh_key_pub" {
