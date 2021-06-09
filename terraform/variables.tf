@@ -6,12 +6,12 @@ variable "vcd_web_count" {
 
 variable "aws_web_count" {
   description = "aws web node count"
-  default     = 0
+  default     = 5
 }
 
 variable "google_web_count" {
   description = "google web node count"
-  default     = 0
+  default     = 1
 }
 
 ### Variables
