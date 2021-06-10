@@ -1,12 +1,12 @@
 ### VM Counts
 variable "aws_web_count" {
   description = "aws web node count"
-  default     = 1
+  default     = 0
 }
 
 variable "google_web_count" {
   description = "google web node count"
-  default     = 1
+  default     = 0
 }
 
 variable "vcd_web_count" {
