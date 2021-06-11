@@ -8,7 +8,11 @@ terraform {
       source  = "hashicorp/google"
       version = "3.71.0"
     }
-  }
+    vcd = {
+      source  = "vmware/vcd"
+      version = "3.2.0"
+    }
+  } 
   backend "remote" {
     organization = "racklabs"
 
