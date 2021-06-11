@@ -12,7 +12,7 @@ terraform {
       source  = "vmware/vcd"
       version = "3.2.0"
     }
-  } 
+  }
   backend "remote" {
     organization = "racklabs"
 
