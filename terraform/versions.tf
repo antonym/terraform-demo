@@ -6,7 +6,7 @@ terraform {
     }
     google = {
       source  = "hashicorp/google"
-      version = "3.71.0"
+      version = "4.7.0"
     }
     vcd = {
       source  = "vmware/vcd"
